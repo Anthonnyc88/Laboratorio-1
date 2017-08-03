@@ -37,6 +37,7 @@ public class Ventana_Nombres extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         bntMostrar = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
+        bntImprimir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,6 +55,8 @@ public class Ventana_Nombres extends javax.swing.JFrame {
         jScrollPane1.setViewportView(bntMostrar);
 
         jLabel2.setText("Matriz");
+
+        bntImprimir.setText("Mostrar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -73,26 +76,32 @@ public class Ventana_Nombres extends javax.swing.JFrame {
                         .addComponent(bntAgregar)
                         .addGap(39, 39, 39))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(175, 175, 175)
-                .addComponent(jLabel2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(175, 175, 175)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addComponent(bntImprimir)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bntAgregar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(58, 58, 58)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(bntImprimir)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bntAgregar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -101,25 +110,22 @@ public class Ventana_Nombres extends javax.swing.JFrame {
     private void bntAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntAgregarActionPerformed
         // TODO add your handling code here:
         
-        String matriz [][] = new String[3][3];
-        
-        for(int fila=0 ; fila<matriz.length;fila++){ //recorre las filas
-            for(int columna =0; columna< matriz[fila].length;columna++){ //recorre las columnas
-               
-                
+        int matriz [][] = new int[3][3];
+         String strMatriz="";
+         
+         for (int i = 0; i < matriz.length; i++) {
+             System.out.print("|");
+            for (int r = 0; r < matriz[i].length; r++){
+                 strMatriz +=(matriz[i][r] + " ");//pasa la matriz a String
+                    
+                }
+                 strMatriz += "\n";
             }
             
-        }
-        ArrayList<String> ListaString = new ArrayList<>();
-         String nombre =textNombre.getText();
-        for (int i = 0; i < 20; i++) {
-            ListaString.add(nombre + "\t");
-        }
-     
-         bntMostrar.setText(nombre);
-         
-         
+            bntImprimir.setText(strMatriz);
         
+        
+                
         
         
     }//GEN-LAST:event_bntAgregarActionPerformed
@@ -161,6 +167,7 @@ public class Ventana_Nombres extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntAgregar;
+    private javax.swing.JButton bntImprimir;
     private javax.swing.JTextArea bntMostrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
