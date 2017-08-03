@@ -43,6 +43,11 @@ public class Ventana extends javax.swing.JFrame {
         });
 
         bntLibro.setText("Libros");
+        bntLibro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntLibroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -77,6 +82,12 @@ public class Ventana extends javax.swing.JFrame {
         Ventana_Nombres a = new Ventana_Nombres();
         a.setVisible(true);
     }//GEN-LAST:event_bntNombresActionPerformed
+
+    private void bntLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntLibroActionPerformed
+        // TODO add your handling code here:
+        Ventana_Libros a = new Ventana_Libros();
+        a.setVisible(true);
+    }//GEN-LAST:event_bntLibroActionPerformed
 
     /**
      * @param args the command line arguments
